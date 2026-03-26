@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">finto</string>
+    <string name="image_will_not_be_saved">image will not be saved</string>
+    <string name="scanning">Scanning...</string>
+</resources>

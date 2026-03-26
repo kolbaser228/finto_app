@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_ocr_input"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="OCR Input" />
+    <item
+        android:id="@+id/nav_manual_input"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="Manual Input" />
+    <item
+        android:id="@+id/nav_analytics"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Analytics" />
+</menu>
