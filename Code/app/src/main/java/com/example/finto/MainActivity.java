@@ -11,6 +11,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.finto.ui.analytics.AnalyticsFragment;
 import com.example.finto.ui.inputs.OcrScannerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -37,8 +38,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             } else if (itemId == R.id.nav_manual_input) {
                 // selectedFragment = new ManualInputFragment(); // Розкоментуєте, коли створите екран ручного вводу
-            } else if (itemId == R.id.nav_analytics) {
-                // selectedFragment = new AnalyticsFragment();
+            } else if (itemId == R.id.nav_analytics) { // ДОДАЙ ЦЕЙ БЛОК
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new AnalyticsFragment())
+                        .commit();
+                return true;
             }
 
             if (selectedFragment != null) {

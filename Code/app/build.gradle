@@ -50,6 +50,7 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    implementation(libs.mpandroidchart)
 
     def camerax_version = "1.4.0"
     implementation libs.camera.core
