@@ -223,7 +223,7 @@ public class OcrScannerFragment extends Fragment {
                     .append(" — ").append(item.amount).append(" грн").append("\n");
             totalSum += item.amount;
         }
-        sb.append("\nЗагальна сума: $").append(String.format("%.2f", totalSum));
+        sb.append("\nЗагальна сума: грн").append(String.format("%.2f", totalSum));
 
         new AlertDialog.Builder(requireContext())
                 .setTitle("Розпізнано з чека")
