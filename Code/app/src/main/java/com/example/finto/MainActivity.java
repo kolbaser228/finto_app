@@ -15,6 +15,8 @@ import com.example.finto.ui.analytics.AnalyticsFragment;
 import com.example.finto.ui.inputs.OcrScannerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.example.finto.ui.inputs.ManualInputFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int CAMERA_PERMISSION_CODE = 100;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 checkCameraPermissionAndStartScanner();
                 return true;
             } else if (itemId == R.id.nav_manual_input) {
-                // selectedFragment = new ManualInputFragment(); // Розкоментуєте, коли створите екран ручного вводу
+                 selectedFragment = new ManualInputFragment(); // Розкоментуєте, коли створите екран ручного вводу
             } else if (itemId == R.id.nav_analytics) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new AnalyticsFragment())

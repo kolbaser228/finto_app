@@ -18,6 +18,9 @@ public interface TransactionDao {
     @Insert
     void insertCategories(List<Category> categories);
 
+    @Insert
+    long insertCategory(Category category);
+
     @Query("SELECT * FROM transactions ORDER BY date DESC")
     LiveData<List<Transaction>> getAllTransactions();
 
