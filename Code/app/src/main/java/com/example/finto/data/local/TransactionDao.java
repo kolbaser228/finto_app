@@ -21,10 +21,12 @@ public interface TransactionDao {
     @Query("SELECT * FROM transactions ORDER BY date DESC")
     LiveData<List<Transaction>> getAllTransactions();
 
+    @Query("SELECT * FROM transactions ORDER BY date ASC")
+    List<Transaction> getAllTransactionsSync();
+
     @Query("SELECT SUM(amount) FROM transactions")
     LiveData<Double> getTotalBalance();
 
-    // Синхронний запит для фонового потоку (для OCR)
     @Query("SELECT * FROM categories")
     List<Category> getAllCategoriesSync();
 }

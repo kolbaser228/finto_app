@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             } else if (itemId == R.id.nav_manual_input) {
                 // selectedFragment = new ManualInputFragment(); // Розкоментуєте, коли створите екран ручного вводу
-            } else if (itemId == R.id.nav_analytics) { // ДОДАЙ ЦЕЙ БЛОК
+            } else if (itemId == R.id.nav_analytics) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new AnalyticsFragment())
                         .commit();
