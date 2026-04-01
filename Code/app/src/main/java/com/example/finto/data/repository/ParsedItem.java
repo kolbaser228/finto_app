@@ -12,7 +12,7 @@ public class ParsedItem {
     }
 
     public ParsedItem(double amount, String comment, Long categoryId, Long date) {
-        this.amount = amount;
+        this.amount = -amount;
         this.comment = comment;
         this.categoryId = categoryId;
         this.date = date;
