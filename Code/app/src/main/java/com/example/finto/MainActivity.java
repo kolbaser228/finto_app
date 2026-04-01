@@ -12,10 +12,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.finto.ui.analytics.AnalyticsFragment;
+import com.example.finto.ui.dashboard.DashboardFragment;
 import com.example.finto.ui.inputs.OcrScannerFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import com.example.finto.ui.inputs.ManualInputFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,13 +28,19 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new DashboardFragment())
+                    .commit();
+        }
+
         bottomNav.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
 
             int itemId = item.getItemId();
 
             if (itemId == R.id.nav_home) {
-                // selectedFragment = new HomeFragment();
+                selectedFragment = new DashboardFragment();
             } else if (itemId == R.id.nav_ocr_input) {
                 checkCameraPermissionAndStartScanner();
                 return true;

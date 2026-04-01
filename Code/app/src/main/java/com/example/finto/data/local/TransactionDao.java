@@ -32,4 +32,7 @@ public interface TransactionDao {
 
     @Query("SELECT * FROM categories")
     List<Category> getAllCategoriesSync();
+
+    @Query("SELECT * FROM categories")
+    LiveData<List<Category>> getAllCategories();
 }

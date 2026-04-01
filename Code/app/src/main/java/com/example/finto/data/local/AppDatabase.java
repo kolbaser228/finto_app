@@ -56,6 +56,19 @@ public abstract class AppDatabase extends RoomDatabase {
                 );
 
                 dao.insertCategories(defaultCategories);
+
+                // Отримуємо згенеровані ID категорій, щоб прив'язати транзакції
+                long time = System.currentTimeMillis();
+                List<Transaction> dummyTransactions = Arrays.asList(
+                    // Початковий бюджет, щоб після витрат баланс був рівно $3000.00, як на макеті! (3000 + 187.25 = 3187.25)
+                    new Transaction(3187.25, "Initial Deposit", time - 86400000L * 10, false, 6L), // 6 is Other / Income
+                    
+                    new Transaction(-15.50, "Groceries", time, false, 1L), // Food -> Shopping cart
+                    new Transaction(-42.00, "Transport card", time, false, 4L), // Transport -> Bus
+                    new Transaction(-125.00, "Electricity", time, false, 3L), // Bills -> Utility Bill
+                    new Transaction(-4.75, "Espresso", time, false, 1L) // Food -> Coffee cup
+                );
+                dao.insertTransactions(dummyTransactions);
             });
         }
     };

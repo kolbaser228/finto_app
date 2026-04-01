@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +36,7 @@ public class ManualInputFragment extends Fragment {
     private Button btnCreateCategory;
     private Button btnSave;
     private TextView tvTitle;
+    private RadioGroup rgType;
 
     private AppDatabase db;
     private TransactionDao dao;
@@ -61,6 +64,7 @@ public class ManualInputFragment extends Fragment {
         btnCreateCategory = view.findViewById(R.id.btnCreateCategory);
         btnSave = view.findViewById(R.id.btnSave);
         tvTitle = view.findViewById(R.id.tvManualAddTitle);
+        rgType = view.findViewById(R.id.rgType);
 
         db = AppDatabase.getDatabase(requireContext());
         dao = db.transactionDao();
@@ -172,11 +176,14 @@ public class ManualInputFragment extends Fragment {
 
         Category selectedCategory = categoryList.get(selectedPosition);
 
+        boolean isExpense = rgType.getCheckedRadioButtonId() == R.id.rbExpense;
+        double finalAmount = isExpense ? -Math.abs(amount) : Math.abs(amount);
+
         Transaction transaction = new Transaction(
-                amount,
+                finalAmount,
                 "Manual add",
                 System.currentTimeMillis(),
-                false,
+                isExpense,
                 selectedCategory.id
         );
 

@@ -65,7 +65,7 @@ public class OcrRepository {
 
             Long finalCategoryId = (item.categoryId > 0) ? item.categoryId : fallbackCategoryId;
 
-            transactionsToSave.add(new Transaction(item.amount, item.comment, dateToSave, true, finalCategoryId));
+            transactionsToSave.add(new Transaction(-Math.abs(item.amount), item.comment, dateToSave, true, finalCategoryId));
         }
         transactionDao.insertTransactions(transactionsToSave);
     }
